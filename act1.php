@@ -18,10 +18,15 @@ abstract class Database
 }
 abstract class Model extends Database
 {
-    public function insert() : string
+    abstract class Model
     {
-        return "This is original "
+        public $name;
+        public function __construct($name){
+            $this->$name = $name;
+        }
     }
+    abstract public function intro() : string;
 }
+   =
 
 ?>
