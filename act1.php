@@ -6,22 +6,22 @@ abstract class Database
     public $servername ="abstract";
     public $username = "root";
     public $password =""
-    public $dbname = "ner"
+    public $dbname = "ner";
 
     public function __construct($conn)
     {
         $this->conn = new mysqli($this->servername, $this->username, $this-> password);
         $create = "CREATE DATABASE IF NOT EXISTS $this->dbname";
-        var_dump($$this->conn);
+        var_dump($this->conn);
     }
     abstract public function insert() : string;
-
 }
-class Employee extends Database
+abstract class Model extends Database
 {
-    public function dbname() : string;
+    public function insert() : string
     {
-        return $this->conn;
+        return "This is original "
     }
 }
+
 ?>
